@@ -21,7 +21,8 @@ Aula 4 - REST
     3. Cacheável - Ela tem que ter a possibilidade de permitir cache, ou seja em alguns casos você vai precisar fazer caches de informações na sua
     API
     4. Saber trabalhar com camadas - Não importa se você colocar um firewall ou um Proxy ou se você colocar outa coisa entre a requisição e a 
-    resposta entre o cliente e API, a sua API tem que ta pouco se lixando se tem algo entre ele e o cliente, ela vai ter que funciona da forma que ela tem que funcionar, ou seja trabalhar com camada significa que não importa o que você colocar, ela tem que funcionar perfeitamente sem
+    resposta entre o cliente e API, a sua API tem que ta pouco se lixando se tem algo entre ele e o cliente, ela vai ter que funciona da forma
+    que ela tem que funcionar, ou seja trabalhar com camada significa que não importa o que você colocar, ela tem que funcionar perfeitamente sem
     nenhum problema 
     5. Interface uniforme e direta - A mais importante que sua API tem que ter é uma interface uniforme e direta 
 
