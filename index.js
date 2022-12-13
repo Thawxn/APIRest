@@ -22,6 +22,26 @@ app.get('/games', (req, res) => {
         res.statusCode = 200
         res.json(games)
     })
+});
+
+app.get('/game/:id', (req, res) => {
+    let id = req.params.id;
+
+    if(isNaN(id)){
+        res.sendStatus(400)
+    }else{
+
+        Game.findOne({raw: true, where: {id}}).then(games => {
+            if(games == null){
+                res.sendStatus(404)
+            }else{
+                
+                res.json(games)
+            }
+        })
+
+    }
+
 })
 
 
