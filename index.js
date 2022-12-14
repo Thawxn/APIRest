@@ -75,6 +75,35 @@ app.delete('/game/:id', (req, res) => {
     }
 });
 
+//Rota para atualizar um jogo
+app.put('/game/:id', (req, res) => {
+    let id = req.params.id;
+    let {title, year, price } = req.body;
+
+    if(isNaN(id)){
+        res.sendStatus(400)
+    }else{
+        Game.findOne({raw: true, where: {id}}).then(games => {
+            if(games == null){
+                res.sendStatus(400)
+            }else{
+                if(title != null){
+                    Game.update({title}, {where: {id}})
+                }
+
+                if(year != null){
+                    Game.update({year}, {where: {id}})
+                }
+
+                if(price != null){
+                    Game.update({price}, {where: {id}})
+                }
+                res.sendStatus(200)
+            }
+        })
+    }
+});
+
 
 app.listen(3000, () => {
     console.log('Servidor funcionando com sucesso');
