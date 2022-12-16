@@ -7,11 +7,11 @@ const Game = connection.define('games', {
         allNull: false
     },
     year: {
-        type: Sequelize.STRING,
+        type: Sequelize.NUMBER,
         allNull: false
     },
     price: {
-        type: Sequelize.STRING,
+        type: Sequelize.NUMBER,
         allNull: false
     }
 
