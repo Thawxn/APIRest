@@ -1,1 +1,1 @@
-Criando uma APIRest simples de listagem de jogos, usando Node e o Banco de Dados com Sequelize e MySQL
+Criando uma APIRest simples de listagem de jogos, usando Node e o Banco de Dados com Sequelize e MySQL, consumindo em um HTML simples

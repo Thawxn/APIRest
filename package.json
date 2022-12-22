@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "nodemon APIDEGAMES/index.js"
+  },
   "dependencies": {
     "cors": "^2.8.5"
   }
