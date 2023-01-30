@@ -110,9 +110,28 @@ app.post('/autheticate', (req, res) => {
 
 //Rota listagem de Games
 app.get('/games', auth, (req, res) => {
+
+    var HATEOAS = [
+        {
+            href: 'http://localhost:3000/games/0',
+            method: 'DELETE',
+            rel: 'delete_games'
+        },
+        {
+            href: 'http://localhost:3000/games/0',
+            method: 'GET',
+            rel: 'get_games'
+        },
+        {
+            href: 'http://localhost:3000/authenticate',
+            method: 'POST',
+            rel: 'login'
+        },
+    ]
+
     Game.findAll().then(games => {
         res.statusCode = 200
-        res.json(games)
+        res.json({games: games, _links: HATEOAS})
     })
 });
 
@@ -123,12 +142,35 @@ app.get('/game/:id', auth, (req, res) => {
     if(isNaN(id)){
         res.sendStatus(400)
     }else{
+        var HATEOAS = [
+            {
+                href: 'http://localhost:3000/game/'+id,
+                method: 'DELETE',
+                rel: 'delete_game'
+            },
+            {
+                href: 'http://localhost:3000/game/'+id,
+                method: 'PUT',
+                rel: 'edit_game'
+            },
+            {
+                href: 'http://localhost:3000/game/'+id,
+                method: 'GET',
+                rel: 'get_games'
+            },
+            {
+                href: 'http://localhost:3000/games',
+                method: 'GET',
+                rel: 'get_all_games'
+            },
+        ]
+
         Game.findOne({raw: true, where: {id}}).then(games => {
             if(games == null){
                 res.sendStatus(404)
             }else{
                 res.statusCode = 200
-                res.json(games)
+                res.json({games, _links: HATEOAS})
             }
         })
     }
